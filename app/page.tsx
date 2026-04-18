@@ -1,16 +1,21 @@
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center font-sans">
-      <main className="flex w-full max-w-3xl flex-col items-center gap-8 px-6 py-16 text-center sm:items-start sm:text-left">
-        <div className="flex flex-col gap-4">
-          <h1 className="text-4xl font-bold tracking-tight">
-            Time&Time
-          </h1>
-          <p className="max-w-md text-lg text-muted-foreground">
-            To get started, send a prompt or modify this page directly.
-          </p>
-        </div>
-      </main>
+    <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center px-6">
+      <div className="text-center max-w-4xl">
+        <h1
+          className="text-6xl md:text-7xl font-light mb-4 text-[#E8C96A] text-balance"
+          style={{ fontFamily: 'Cormorant Garamond' }}
+        >
+          Where Time Meets Luxury
+        </h1>
+        <p
+          className="text-lg md:text-xl text-[#C9A84C] max-w-2xl mx-auto leading-relaxed"
+          style={{ fontFamily: 'DM Sans' }}
+        >
+          Experience premium watches and electronics designed for the discerning collector. 
+          From timeless classics to cutting-edge innovations, we bring excellence to every moment.
+        </p>
+      </div>
     </div>
   );
 }

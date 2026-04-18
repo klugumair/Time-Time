@@ -1,14 +1,12 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { Navbar } from '@/components/navbar'
+import { Footer } from '@/components/footer'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Time&Time | Premium Luxury Watches & Electronics',
+  description: 'Discover premium luxury watches and electronics at Time&Time. Where time meets luxury.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -35,9 +33,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="font-sans antialiased">
-        {children}
+    <html lang="en" className="bg-[#0A0A0A]">
+      <body className="font-sans antialiased bg-[#0A0A0A] text-[#F5F0E8]">
+        <Navbar />
+        <main className="pt-20">
+          {children}
+        </main>
+        <Footer />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
