@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
+import { CartProvider, CartDrawer } from '@/components/cart-drawer'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -35,11 +36,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-[#0A0A0A]">
       <body className="font-sans antialiased bg-[#0A0A0A] text-[#F5F0E8]">
-        <Navbar />
-        <main className="pt-20">
-          {children}
-        </main>
-        <Footer />
+        <CartProvider>
+          <Navbar />
+          <CartDrawer />
+          <main className="pt-20">
+            {children}
+          </main>
+          <Footer />
+        </CartProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

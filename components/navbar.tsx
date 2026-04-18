@@ -3,8 +3,10 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, Search, ShoppingCart } from 'lucide-react';
+import { useCart } from './cart-drawer';
 
 export function Navbar() {
+  const { items, openCart } = useCart();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -63,9 +65,14 @@ export function Navbar() {
           <button className="text-[#F5F0E8] hover:text-[#E8C96A] transition-colors p-2">
             <Search size={20} />
           </button>
-          <button className="text-[#F5F0E8] hover:text-[#E8C96A] transition-colors p-2 relative">
+          <button
+            onClick={openCart}
+            className="text-[#F5F0E8] hover:text-[#E8C96A] transition-colors p-2 relative"
+          >
             <ShoppingCart size={20} />
-            <span className="absolute top-1 right-1 w-2 h-2 bg-[#E8C96A] rounded-full"></span>
+            {items.length > 0 && (
+              <span className="absolute top-1 right-1 w-2 h-2 bg-[#E8C96A] rounded-full"></span>
+            )}
           </button>
 
           {/* Mobile Menu Button */}
