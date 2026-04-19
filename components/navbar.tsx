@@ -19,13 +19,13 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    'Watches',
-    'Smart Watches',
-    'Wall Clocks',
-    'Electronics',
-    'Services',
-    'About'
+  const navLinks: { label: string; href: string }[] = [
+    { label: 'Watches', href: '/products' },
+    { label: 'Smart Watches', href: '/products' },
+    { label: 'Wall Clocks', href: '/products' },
+    { label: 'Electronics', href: '/products' },
+    { label: 'Services', href: '/services' },
+    { label: 'About', href: '/' },
   ];
 
   return (
@@ -50,12 +50,12 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-12">
           {navLinks.map((link) => (
             <Link
-              key={link}
-              href={`/${link.toLowerCase().replace(/\s+/g, '-')}`}
+              key={link.label}
+              href={link.href}
               className="text-[#F5F0E8] text-xs uppercase tracking-widest hover:text-[#E8C96A] transition-colors"
               style={{ fontFamily: 'Cinzel' }}
             >
-              {link}
+              {link.label}
             </Link>
           ))}
         </div>
@@ -91,13 +91,13 @@ export function Navbar() {
           <div className="flex flex-col gap-8 p-6 pt-12">
             {navLinks.map((link) => (
               <Link
-                key={link}
-                href={`/${link.toLowerCase().replace(/\s+/g, '-')}`}
+                key={link.label}
+                href={link.href}
                 className="text-[#F5F0E8] text-lg uppercase tracking-widest hover:text-[#E8C96A] transition-colors"
                 style={{ fontFamily: 'Cinzel' }}
                 onClick={() => setIsOpen(false)}
               >
-                {link}
+                {link.label}
               </Link>
             ))}
           </div>

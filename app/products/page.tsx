@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import Link from 'next/link';
 import { ChevronDown, Grid3x3, List, X } from 'lucide-react';
 
 const mockProducts = [
@@ -223,92 +224,101 @@ export default function ProductsPage() {
                   : 'grid-cols-1'
               }`}
             >
-              {sortedProducts.map((product) => (
-                <div
-                  key={product.id}
-                  className="bg-[#141414] rounded-sm border border-[rgba(201,168,76,0.12)] overflow-hidden group cursor-pointer hover:border-[rgba(201,168,76,0.4)] transition-all duration-300"
-                >
-                  {/* Image Area */}
-                  <div className="relative bg-[#1E1E1E] h-56 flex items-center justify-center overflow-hidden">
-                    <div className="text-6xl">{product.image}</div>
+              {sortedProducts.map((product) => {
+                const productHref = `/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`;
+                return (
+                  <div
+                    key={product.id}
+                    className="bg-[#141414] rounded-sm border border-[rgba(201,168,76,0.12)] overflow-hidden group cursor-pointer hover:border-[rgba(201,168,76,0.4)] transition-all duration-300"
+                  >
+                    {/* Image Area */}
+                    <Link
+                      href={productHref}
+                      className="relative bg-[#1E1E1E] h-56 flex items-center justify-center overflow-hidden block"
+                    >
+                      <div className="text-6xl">{product.image}</div>
 
-                    {/* Sale Badge */}
-                    {product.sale && (
-                      <div
-                        className="absolute top-4 left-4 px-3 py-1 rounded-sm text-xs font-bold"
-                        style={{
-                          fontFamily: 'Cinzel',
-                          background: '#E8C96A',
-                          color: '#0A0A0A',
-                        }}
-                      >
-                        SALE
+                      {/* Sale Badge */}
+                      {product.sale && (
+                        <div
+                          className="absolute top-4 left-4 px-3 py-1 rounded-sm text-xs font-bold"
+                          style={{
+                            fontFamily: 'Cinzel',
+                            background: '#E8C96A',
+                            color: '#0A0A0A',
+                          }}
+                        >
+                          SALE
+                        </div>
+                      )}
+
+                      {/* Quick View Overlay */}
+                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                        <span
+                          style={{ fontFamily: 'DM Sans' }}
+                          className="px-6 py-2 bg-[#C9A84C] text-[#0A0A0A] font-medium rounded-sm pointer-events-none"
+                        >
+                          Quick View
+                        </span>
                       </div>
-                    )}
+                    </Link>
 
-                    {/* Quick View Overlay */}
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <button
-                        style={{ fontFamily: 'DM Sans' }}
-                        className="px-6 py-2 bg-[#C9A84C] text-[#0A0A0A] font-medium rounded-sm"
+                    {/* Product Info */}
+                    <div className="p-4">
+                      <p
+                        style={{ fontFamily: 'Cinzel' }}
+                        className="text-xs text-[#C9A84C] uppercase tracking-wider mb-2"
                       >
-                        Quick View
-                      </button>
-                    </div>
-                  </div>
+                        {product.brand}
+                      </p>
+                      <Link href={productHref}>
+                        <h3
+                          style={{ fontFamily: 'Cormorant Garamond' }}
+                          className="text-lg text-[#F5F0E8] mb-3 line-clamp-2"
+                        >
+                          {product.name}
+                        </h3>
+                      </Link>
 
-                  {/* Product Info */}
-                  <div className="p-4">
-                    <p
-                      style={{ fontFamily: 'Cinzel' }}
-                      className="text-xs text-[#C9A84C] uppercase tracking-wider mb-2"
-                    >
-                      {product.brand}
-                    </p>
-                    <h3
-                      style={{ fontFamily: 'Cormorant Garamond' }}
-                      className="text-lg text-[#F5F0E8] mb-3 line-clamp-2"
-                    >
-                      {product.name}
-                    </h3>
-
-                    {/* Price */}
-                    <div className="flex items-center gap-2 mb-4">
-                      {product.salePrice ? (
-                        <>
-                          <span
-                            style={{ fontFamily: 'DM Sans' }}
-                            className="text-sm line-through text-[rgba(245,240,232,0.4)]"
-                          >
-                            PKR {product.price.toLocaleString()}
-                          </span>
+                      {/* Price */}
+                      <div className="flex items-center gap-2 mb-4">
+                        {product.salePrice ? (
+                          <>
+                            <span
+                              style={{ fontFamily: 'DM Sans' }}
+                              className="text-sm line-through text-[rgba(245,240,232,0.4)]"
+                            >
+                              PKR {product.price.toLocaleString()}
+                            </span>
+                            <span
+                              style={{ fontFamily: 'DM Sans' }}
+                              className="text-base font-bold text-[#C9A84C]"
+                            >
+                              PKR {product.salePrice.toLocaleString()}
+                            </span>
+                          </>
+                        ) : (
                           <span
                             style={{ fontFamily: 'DM Sans' }}
                             className="text-base font-bold text-[#C9A84C]"
                           >
-                            PKR {product.salePrice.toLocaleString()}
+                            PKR {product.price.toLocaleString()}
                           </span>
-                        </>
-                      ) : (
-                        <span
-                          style={{ fontFamily: 'DM Sans' }}
-                          className="text-base font-bold text-[#C9A84C]"
-                        >
-                          PKR {product.price.toLocaleString()}
-                        </span>
-                      )}
-                    </div>
+                        )}
+                      </div>
 
-                    {/* Add to Cart Button */}
-                    <button
-                      style={{ fontFamily: 'DM Sans' }}
-                      className="w-full py-2 px-4 bg-[#C9A84C] text-[#0A0A0A] font-medium rounded-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0"
-                    >
-                      Add to Cart
-                    </button>
+                      {/* Add to Cart Button */}
+                      <button
+                        type="button"
+                        style={{ fontFamily: 'DM Sans' }}
+                        className="w-full py-2 px-4 bg-[#C9A84C] text-[#0A0A0A] font-medium rounded-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0"
+                      >
+                        Add to Cart
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {sortedProducts.length === 0 && (

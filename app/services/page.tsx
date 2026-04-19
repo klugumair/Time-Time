@@ -9,7 +9,6 @@ const SERVICES = [
     icon: '🔧',
     name: 'Watch Servicing & Overhaul',
     description: 'Complete mechanical and electronic watch servicing with precision tools and expert technicians.',
-    price: 5000,
     days: '7-10',
   },
   {
@@ -17,7 +16,6 @@ const SERVICES = [
     icon: '🔋',
     name: 'Battery Replacement',
     description: 'Quick and reliable battery replacement for all watch types with quality assurance testing.',
-    price: 1500,
     days: '1-2',
   },
   {
@@ -25,7 +23,6 @@ const SERVICES = [
     icon: '⌚',
     name: 'Strap & Bracelet Change',
     description: 'Professional strap and bracelet replacement with authentic materials and proper fitting.',
-    price: 3000,
     days: '1-2',
   },
   {
@@ -33,7 +30,6 @@ const SERVICES = [
     icon: '💎',
     name: 'Crystal/Glass Replacement',
     description: 'Scratch-resistant crystal and glass replacement for all watch models with precision.',
-    price: 4000,
     days: '3-4',
   },
   {
@@ -41,7 +37,6 @@ const SERVICES = [
     icon: '💧',
     name: 'Water Resistance Testing',
     description: 'Professional water resistance testing to ensure your watch meets specifications.',
-    price: 2000,
     days: '1-2',
   },
   {
@@ -49,7 +44,6 @@ const SERVICES = [
     icon: '✨',
     name: 'Watch Polishing & Restoration',
     description: 'Expert polishing and restoration to bring your watch back to its original shine.',
-    price: 3500,
     days: '2-3',
   },
 ];
@@ -139,31 +133,14 @@ export default function ServicesPage() {
                   {service.description}
                 </p>
                 
-                <div className="flex items-center justify-between mb-4 pt-6 border-t border-[rgba(201,168,76,0.1)]">
+                <div className="flex justify-end mt-auto pt-6 border-t border-[rgba(201,168,76,0.1)]">
                   <span
-                    className="text-lg font-semibold text-[#E8C96A]"
-                    style={{ fontFamily: 'DM Sans' }}
-                  >
-                    From PKR {service.price.toLocaleString()}
-                  </span>
-                  <span
-                    className="text-xs px-3 py-1 rounded-full bg-[#0D0D0D] text-[#C9A84C] border border-[rgba(201,168,76,0.3)]"
+                    className="text-xs px-3 py-1 rounded-full bg-[#141414] text-[#C9A84C] border border-[rgba(201,168,76,0.3)]"
                     style={{ fontFamily: 'DM Sans' }}
                   >
                     {service.days} Days
                   </span>
                 </div>
-                
-                <button
-                  style={{
-                    fontFamily: 'DM Sans',
-                    background: 'linear-gradient(135deg, #8B6914 0%, #C9A84C 100%)',
-                    color: '#0A0A0A',
-                  }}
-                  className="w-full py-2 rounded-sm font-medium transition-all duration-300 hover:shadow-lg"
-                >
-                  Book Now
-                </button>
               </div>
             ))}
           </div>
@@ -171,7 +148,7 @@ export default function ServicesPage() {
       </section>
 
       {/* BOOKING FORM SECTION */}
-      <section className="py-20 px-6 sm:px-12 md:px-20 bg-[#0D0D0D]">
+      <section className="py-20 px-6 sm:px-12 md:px-20 bg-[#141414]">
         <div className="max-w-4xl mx-auto">
           <h2
             className="text-4xl md:text-5xl font-light text-center mb-12 text-[#F5F0E8]"
@@ -181,14 +158,14 @@ export default function ServicesPage() {
           </h2>
 
           {submitted && (
-            <div className="mb-8 p-4 rounded-sm bg-[#1E1E1E] border border-[#E8C96A] text-[#E8C96A] text-center" style={{ fontFamily: 'DM Sans' }}>
+            <div className="mb-8 p-4 rounded-sm bg-[#1E1E1E] border border-[#C9A84C] text-[#C9A84C] text-center" style={{ fontFamily: 'DM Sans' }}>
               ✓ Booking request submitted! We'll contact you shortly.
             </div>
           )}
 
           <form
             onSubmit={handleSubmit}
-            className="bg-[#141414] p-8 md:p-12 rounded-sm border border-[#C9A84C]"
+            className="bg-[#1E1E1E] p-8 md:p-12 rounded-sm border border-[#C9A84C]"
           >
             {/* Customer Information */}
             <div className="mb-10">
@@ -212,7 +189,7 @@ export default function ServicesPage() {
                     value={formData.fullName}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 rounded-sm bg-[#0D0D0D] border border-[rgba(201,168,76,0.2)] text-[#F5F0E8] focus:border-[#C9A84C] focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-sm bg-[#0A0A0A] border border-[rgba(201,168,76,0.2)] text-[#F5F0E8] focus:border-[#C9A84C] focus:outline-none transition-colors"
                     style={{ fontFamily: 'DM Sans' }}
                     placeholder="John Doe"
                   />
@@ -231,7 +208,7 @@ export default function ServicesPage() {
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 rounded-sm bg-[#0D0D0D] border border-[rgba(201,168,76,0.2)] text-[#F5F0E8] focus:border-[#C9A84C] focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-sm bg-[#0A0A0A] border border-[rgba(201,168,76,0.2)] text-[#F5F0E8] focus:border-[#C9A84C] focus:outline-none transition-colors"
                     style={{ fontFamily: 'DM Sans' }}
                     placeholder="+92 300 1234567"
                   />
@@ -250,7 +227,7 @@ export default function ServicesPage() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 rounded-sm bg-[#0D0D0D] border border-[rgba(201,168,76,0.2)] text-[#F5F0E8] focus:border-[#C9A84C] focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-sm bg-[#0A0A0A] border border-[rgba(201,168,76,0.2)] text-[#F5F0E8] focus:border-[#C9A84C] focus:outline-none transition-colors"
                     style={{ fontFamily: 'DM Sans' }}
                     placeholder="john@example.com"
                   />
@@ -280,7 +257,7 @@ export default function ServicesPage() {
                     value={formData.brandModel}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 rounded-sm bg-[#0D0D0D] border border-[rgba(201,168,76,0.2)] text-[#F5F0E8] focus:border-[#C9A84C] focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-sm bg-[#0A0A0A] border border-[rgba(201,168,76,0.2)] text-[#F5F0E8] focus:border-[#C9A84C] focus:outline-none transition-colors"
                     style={{ fontFamily: 'DM Sans' }}
                     placeholder="Rolex Submariner"
                   />
@@ -298,7 +275,7 @@ export default function ServicesPage() {
                     value={formData.serviceType}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 rounded-sm bg-[#0D0D0D] border border-[rgba(201,168,76,0.2)] text-[#F5F0E8] focus:border-[#C9A84C] focus:outline-none transition-colors appearance-none"
+                    className="w-full px-4 py-3 rounded-sm bg-[#0A0A0A] border border-[rgba(201,168,76,0.2)] text-[#F5F0E8] focus:border-[#C9A84C] focus:outline-none transition-colors appearance-none"
                     style={{ fontFamily: 'DM Sans' }}
                   >
                     <option value="">Select a service...</option>
@@ -322,7 +299,7 @@ export default function ServicesPage() {
                   name="watchDescription"
                   value={formData.watchDescription}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 rounded-sm bg-[#0D0D0D] border border-[rgba(201,168,76,0.2)] text-[#F5F0E8] focus:border-[#C9A84C] focus:outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-sm bg-[#0A0A0A] border border-[rgba(201,168,76,0.2)] text-[#F5F0E8] focus:border-[#C9A84C] focus:outline-none transition-colors resize-none"
                   style={{ fontFamily: 'DM Sans' }}
                   rows={3}
                   placeholder="Describe your watch condition, color, material, etc."
@@ -351,7 +328,7 @@ export default function ServicesPage() {
                   value={formData.dropoffDate}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 rounded-sm bg-[#0D0D0D] border border-[rgba(201,168,76,0.2)] text-[#F5F0E8] focus:border-[#C9A84C] focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 rounded-sm bg-[#0A0A0A] border border-[rgba(201,168,76,0.2)] text-[#F5F0E8] focus:border-[#C9A84C] focus:outline-none transition-colors"
                   style={{ fontFamily: 'DM Sans' }}
                 />
               </div>
@@ -368,7 +345,7 @@ export default function ServicesPage() {
                   value={formData.issueDescription}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 rounded-sm bg-[#0D0D0D] border border-[rgba(201,168,76,0.2)] text-[#F5F0E8] focus:border-[#C9A84C] focus:outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-sm bg-[#0A0A0A] border border-[rgba(201,168,76,0.2)] text-[#F5F0E8] focus:border-[#C9A84C] focus:outline-none transition-colors resize-none"
                   style={{ fontFamily: 'DM Sans' }}
                   rows={4}
                   placeholder="What issues is your watch experiencing?"

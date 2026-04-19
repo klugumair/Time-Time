@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { Heart, Star, Truck, Shield, RotateCcw, ChevronDown } from 'lucide-react';
 
 const productDetail = {
@@ -69,13 +70,13 @@ export default function ProductDetailPage() {
           style={{ fontFamily: 'DM Sans' }}
           className="text-sm text-[#C9A84C] mb-8 flex items-center gap-2"
         >
-          <a href="/" className="hover:text-[#E8C96A]">
+          <Link href="/" className="hover:text-[#E8C96A]">
             Home
-          </a>
+          </Link>
           <span>/</span>
-          <a href="/products" className="hover:text-[#E8C96A]">
+          <Link href="/products" className="hover:text-[#E8C96A]">
             Watches
-          </a>
+          </Link>
           <span>/</span>
           <span className="text-[rgba(245,240,232,0.6)]">{productDetail.name}</span>
         </div>
@@ -249,9 +250,11 @@ export default function ProductDetailPage() {
             {/* Action Buttons */}
             <div className="flex gap-3 mb-8">
               <button
-                style={{ fontFamily: 'DM Sans' }}
+                style={{
+                  fontFamily: 'DM Sans',
+                  background: 'linear-gradient(135deg, #8B6914 0%, #C9A84C 100%)',
+                }}
                 className="flex-1 py-3 rounded-sm font-medium transition-all duration-300 text-[#0A0A0A]"
-                style={{ background: 'linear-gradient(135deg, #8B6914 0%, #C9A84C 100%)' }}
               >
                 Add to Cart
               </button>
@@ -351,9 +354,10 @@ export default function ProductDetailPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {productDetail.relatedProducts.map((product) => (
-              <div
+              <Link
                 key={product.id}
-                className="bg-[#141414] rounded-sm border border-[rgba(201,168,76,0.12)] overflow-hidden group hover:border-[rgba(201,168,76,0.4)] transition-all duration-300 cursor-pointer"
+                href={`/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`}
+                className="bg-[#141414] rounded-sm border border-[rgba(201,168,76,0.12)] overflow-hidden group hover:border-[rgba(201,168,76,0.4)] transition-all duration-300 cursor-pointer block"
               >
                 {/* Image */}
                 <div className="bg-[#1E1E1E] h-48 flex items-center justify-center relative overflow-hidden">
@@ -400,7 +404,7 @@ export default function ProductDetailPage() {
                     )}
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

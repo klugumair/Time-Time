@@ -37,7 +37,7 @@ export function Footer() {
               {['Watches', 'Smart Watches', 'Wall Clocks', 'Electronics'].map((link) => (
                 <li key={link}>
                   <Link
-                    href={`/${link.toLowerCase().replace(/\s+/g, '-')}`}
+                    href="/products"
                     className="text-[#F5F0E8] text-sm hover:text-[#E8C96A] transition-colors"
                     style={{ fontFamily: 'DM Sans' }}
                   >
@@ -60,7 +60,7 @@ export function Footer() {
               {['Repairs & Maintenance', 'Warranty Support', 'Custom Orders', 'Gift Wrapping'].map((service) => (
                 <li key={service}>
                   <Link
-                    href="#"
+                    href="/services"
                     className="text-[#F5F0E8] text-sm hover:text-[#E8C96A] transition-colors"
                     style={{ fontFamily: 'DM Sans' }}
                   >

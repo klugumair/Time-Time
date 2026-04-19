@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { ChevronRight, Check } from 'lucide-react';
 
 const PAYMENT_METHODS = [
@@ -16,6 +17,7 @@ const DELIVERY_METHODS = [
 ];
 
 export default function CheckoutPage() {
+  const router = useRouter();
   const [step, setStep] = useState(1);
   const [deliveryMethod, setDeliveryMethod] = useState('standard');
   const [paymentMethod, setPaymentMethod] = useState('cod');
@@ -57,7 +59,7 @@ export default function CheckoutPage() {
   };
 
   const handlePlaceOrder = () => {
-    window.location.href = '/order-confirmed';
+    router.push('/order-confirmed');
   };
 
   return (
@@ -67,7 +69,7 @@ export default function CheckoutPage() {
         <div className="mb-12">
           <h1
             className="text-4xl md:text-5xl font-light text-[#F5F0E8] mb-2"
-            style={{ fontFamily: 'Cormorant Garamond' }}
+            style={{ fontFamily: 'Cinzel' }}
           >
             Checkout
           </h1>
@@ -117,8 +119,8 @@ export default function CheckoutPage() {
                 {/* Contact Info */}
                 <div className="space-y-4">
                   <h3
-                    className="text-lg text-[#E8C96A]"
-                    style={{ fontFamily: 'DM Sans' }}
+                    className="text-lg text-[#C9A84C]"
+                    style={{ fontFamily: 'Cinzel' }}
                   >
                     Contact Information
                   </h3>
@@ -129,7 +131,7 @@ export default function CheckoutPage() {
                       placeholder="Full Name"
                       value={formData.fullName}
                       onChange={handleInputChange}
-                      className="px-4 py-3 bg-[#0D0D0D] border border-[#1E1E1E] rounded-sm text-[#F5F0E8] placeholder-[#8B6914] focus:border-[#C9A84C] outline-none transition-colors"
+                      className="px-4 py-3 bg-[#0A0A0A] border border-[#1E1E1E] rounded-sm text-[#F5F0E8] placeholder-[#8B6914] focus:border-[#C9A84C] outline-none transition-colors"
                       style={{ fontFamily: 'DM Sans' }}
                     />
                     <input
@@ -138,7 +140,7 @@ export default function CheckoutPage() {
                       placeholder="Email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="px-4 py-3 bg-[#0D0D0D] border border-[#1E1E1E] rounded-sm text-[#F5F0E8] placeholder-[#8B6914] focus:border-[#C9A84C] outline-none transition-colors"
+                      className="px-4 py-3 bg-[#0A0A0A] border border-[#1E1E1E] rounded-sm text-[#F5F0E8] placeholder-[#8B6914] focus:border-[#C9A84C] outline-none transition-colors"
                       style={{ fontFamily: 'DM Sans' }}
                     />
                     <input
@@ -147,7 +149,7 @@ export default function CheckoutPage() {
                       placeholder="Phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="px-4 py-3 bg-[#0D0D0D] border border-[#1E1E1E] rounded-sm text-[#F5F0E8] placeholder-[#8B6914] focus:border-[#C9A84C] outline-none transition-colors"
+                      className="px-4 py-3 bg-[#0A0A0A] border border-[#1E1E1E] rounded-sm text-[#F5F0E8] placeholder-[#8B6914] focus:border-[#C9A84C] outline-none transition-colors"
                       style={{ fontFamily: 'DM Sans' }}
                     />
                   </div>
@@ -156,8 +158,8 @@ export default function CheckoutPage() {
                 {/* Delivery Address */}
                 <div className="space-y-4">
                   <h3
-                    className="text-lg text-[#E8C96A]"
-                    style={{ fontFamily: 'DM Sans' }}
+                    className="text-lg text-[#C9A84C]"
+                    style={{ fontFamily: 'Cinzel' }}
                   >
                     Delivery Address
                   </h3>
@@ -167,7 +169,7 @@ export default function CheckoutPage() {
                     placeholder="Full Address"
                     value={formData.address}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#1E1E1E] rounded-sm text-[#F5F0E8] placeholder-[#8B6914] focus:border-[#C9A84C] outline-none transition-colors"
+                    className="w-full px-4 py-3 bg-[#0A0A0A] border border-[#1E1E1E] rounded-sm text-[#F5F0E8] placeholder-[#8B6914] focus:border-[#C9A84C] outline-none transition-colors"
                     style={{ fontFamily: 'DM Sans' }}
                   />
                   <div className="grid grid-cols-2 gap-4">
@@ -177,7 +179,7 @@ export default function CheckoutPage() {
                       placeholder="City"
                       value={formData.city}
                       onChange={handleInputChange}
-                      className="px-4 py-3 bg-[#0D0D0D] border border-[#1E1E1E] rounded-sm text-[#F5F0E8] placeholder-[#8B6914] focus:border-[#C9A84C] outline-none transition-colors"
+                      className="px-4 py-3 bg-[#0A0A0A] border border-[#1E1E1E] rounded-sm text-[#F5F0E8] placeholder-[#8B6914] focus:border-[#C9A84C] outline-none transition-colors"
                       style={{ fontFamily: 'DM Sans' }}
                     />
                     <input
@@ -186,7 +188,7 @@ export default function CheckoutPage() {
                       placeholder="Area / Sector"
                       value={formData.area}
                       onChange={handleInputChange}
-                      className="px-4 py-3 bg-[#0D0D0D] border border-[#1E1E1E] rounded-sm text-[#F5F0E8] placeholder-[#8B6914] focus:border-[#C9A84C] outline-none transition-colors"
+                      className="px-4 py-3 bg-[#0A0A0A] border border-[#1E1E1E] rounded-sm text-[#F5F0E8] placeholder-[#8B6914] focus:border-[#C9A84C] outline-none transition-colors"
                       style={{ fontFamily: 'DM Sans' }}
                     />
                   </div>
@@ -195,8 +197,8 @@ export default function CheckoutPage() {
                 {/* Delivery Methods */}
                 <div className="space-y-4">
                   <h3
-                    className="text-lg text-[#E8C96A]"
-                    style={{ fontFamily: 'DM Sans' }}
+                    className="text-lg text-[#C9A84C]"
+                    style={{ fontFamily: 'Cinzel' }}
                   >
                     Delivery Method
                   </h3>
@@ -206,7 +208,7 @@ export default function CheckoutPage() {
                         key={method.id}
                         className={`p-4 border rounded-sm cursor-pointer transition-all ${
                           deliveryMethod === method.id
-                            ? 'border-[#C9A84C] bg-[#0D0D0D]'
+                            ? 'border-[#C9A84C] bg-[#141414]'
                             : 'border-[#1E1E1E] hover:border-[#8B6914]'
                         }`}
                       >
@@ -232,7 +234,7 @@ export default function CheckoutPage() {
                           className="text-sm text-[#8B6914] mt-1"
                           style={{ fontFamily: 'DM Sans' }}
                         >
-                          PKR {method.price} · {method.days}
+                          PKR {method.price.toLocaleString()} · {method.days}
                         </div>
                       </label>
                     ))}
@@ -270,7 +272,7 @@ export default function CheckoutPage() {
                       key={method.id}
                       className={`p-4 border rounded-sm cursor-pointer transition-all ${
                         paymentMethod === method.id
-                          ? 'border-[#C9A84C] bg-[#0D0D0D]'
+                          ? 'border-[#C9A84C] bg-[#141414]'
                           : 'border-[#1E1E1E] hover:border-[#8B6914]'
                       }`}
                     >
@@ -317,7 +319,7 @@ export default function CheckoutPage() {
                       placeholder="0300-1234567"
                       value={accountNumber}
                       onChange={(e) => setAccountNumber(e.target.value)}
-                      className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#1E1E1E] rounded-sm text-[#F5F0E8] placeholder-[#8B6914] focus:border-[#C9A84C] outline-none transition-colors"
+                      className="w-full px-4 py-3 bg-[#0A0A0A] border border-[#1E1E1E] rounded-sm text-[#F5F0E8] placeholder-[#8B6914] focus:border-[#C9A84C] outline-none transition-colors"
                       style={{ fontFamily: 'DM Sans' }}
                     />
                   </div>
@@ -326,7 +328,7 @@ export default function CheckoutPage() {
                 <div className="flex gap-4 mt-8">
                   <button
                     onClick={() => setStep(1)}
-                    className="flex-1 py-3 rounded-sm font-medium transition-all border border-[#C9A84C] text-[#C9A84C] hover:bg-[#0D0D0D]"
+                    className="flex-1 py-3 rounded-sm font-medium transition-all border border-[#C9A84C] text-[#C9A84C] hover:bg-[#1E1E1E]"
                     style={{ fontFamily: 'DM Sans' }}
                   >
                     Back
@@ -358,7 +360,7 @@ export default function CheckoutPage() {
                 </h2>
 
                 {/* Order Summary */}
-                <div className="bg-[#0D0D0D] p-6 rounded-sm border border-[#1E1E1E] space-y-4">
+                <div className="bg-[#141414] p-6 rounded-sm border border-[#1E1E1E] space-y-4">
                   <h3
                     className="text-lg text-[#E8C96A]"
                     style={{ fontFamily: 'Cinzel' }}
@@ -388,7 +390,7 @@ export default function CheckoutPage() {
                         className="text-[#C9A84C]"
                         style={{ fontFamily: 'DM Sans' }}
                       >
-                        PKR {item.price * item.qty}
+                        PKR {(item.price * item.qty).toLocaleString()}
                       </p>
                     </div>
                   ))}
@@ -408,12 +410,12 @@ export default function CheckoutPage() {
                       placeholder="Enter coupon code"
                       value={couponCode}
                       onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
-                      className="flex-1 px-4 py-3 bg-[#0D0D0D] border border-[#1E1E1E] rounded-sm text-[#F5F0E8] placeholder-[#8B6914] focus:border-[#C9A84C] outline-none transition-colors"
+                      className="flex-1 px-4 py-3 bg-[#0A0A0A] border border-[#1E1E1E] rounded-sm text-[#F5F0E8] placeholder-[#8B6914] focus:border-[#C9A84C] outline-none transition-colors"
                       style={{ fontFamily: 'DM Sans' }}
                     />
                     <button
                       onClick={applyCoupon}
-                      className="px-6 py-3 rounded-sm font-medium transition-all border border-[#C9A84C] text-[#C9A84C] hover:bg-[#0D0D0D]"
+                      className="px-6 py-3 rounded-sm font-medium transition-all border border-[#C9A84C] text-[#C9A84C] hover:bg-[#1E1E1E]"
                       style={{ fontFamily: 'DM Sans' }}
                     >
                       Apply
@@ -424,13 +426,13 @@ export default function CheckoutPage() {
                       className="text-sm text-[#E8C96A]"
                       style={{ fontFamily: 'DM Sans' }}
                     >
-                      Discount applied: PKR {discount}
+                      Discount applied: PKR {discount.toLocaleString()}
                     </p>
                   )}
                 </div>
 
                 {/* Delivery Info */}
-                <div className="bg-[#0D0D0D] p-4 rounded-sm border border-[#1E1E1E]">
+                <div className="bg-[#141414] p-4 rounded-sm border border-[#1E1E1E]">
                   <p
                     className="text-[#8B6914] text-sm"
                     style={{ fontFamily: 'DM Sans' }}
@@ -454,31 +456,31 @@ export default function CheckoutPage() {
                 </div>
 
                 {/* Price Breakdown */}
-                <div className="bg-[#0D0D0D] p-6 rounded-sm border border-[#1E1E1E] space-y-3">
+                <div className="bg-[#141414] p-6 rounded-sm border border-[#1E1E1E] space-y-3">
                   <div className="flex justify-between text-[#F5F0E8] border-b border-[#1E1E1E] pb-3">
                     <span style={{ fontFamily: 'DM Sans' }}>Subtotal</span>
-                    <span>PKR {subtotal}</span>
+                    <span>PKR {subtotal.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between text-[#F5F0E8] border-b border-[#1E1E1E] pb-3">
                     <span style={{ fontFamily: 'DM Sans' }}>Delivery</span>
-                    <span>PKR {deliveryPrice}</span>
+                    <span>PKR {deliveryPrice.toLocaleString()}</span>
                   </div>
                   {discount > 0 && (
                     <div className="flex justify-between text-[#E8C96A] border-b border-[#1E1E1E] pb-3">
                       <span style={{ fontFamily: 'DM Sans' }}>Discount</span>
-                      <span>-PKR {discount}</span>
+                      <span>-PKR {discount.toLocaleString()}</span>
                     </div>
                   )}
                   <div className="flex justify-between text-[#C9A84C] text-lg font-medium pt-3">
                     <span style={{ fontFamily: 'Cinzel' }}>Total</span>
-                    <span>PKR {total}</span>
+                    <span>PKR {total.toLocaleString()}</span>
                   </div>
                 </div>
 
                 <div className="flex gap-4 mt-8">
                   <button
                     onClick={() => setStep(2)}
-                    className="flex-1 py-3 rounded-sm font-medium transition-all border border-[#C9A84C] text-[#C9A84C] hover:bg-[#0D0D0D]"
+                    className="flex-1 py-3 rounded-sm font-medium transition-all border border-[#C9A84C] text-[#C9A84C] hover:bg-[#1E1E1E]"
                     style={{ fontFamily: 'DM Sans' }}
                   >
                     Back
@@ -501,7 +503,7 @@ export default function CheckoutPage() {
 
           {/* RIGHT: Order Summary Sidebar (40%) */}
           <div className="lg:col-span-1">
-            <div className="sticky top-24 bg-[#0D0D0D] border border-[#1E1E1E] rounded-sm p-6 space-y-6">
+            <div className="sticky top-24 bg-[#141414] border border-[#1E1E1E] rounded-sm p-6 space-y-6">
               <h3
                 className="text-2xl text-[#C9A84C]"
                 style={{ fontFamily: 'Cinzel' }}
@@ -536,7 +538,7 @@ export default function CheckoutPage() {
                         className="text-[#C9A84C] font-medium mt-1"
                         style={{ fontFamily: 'DM Sans' }}
                       >
-                        PKR {item.price * item.qty}
+                        PKR {(item.price * item.qty).toLocaleString()}
                       </p>
                     </div>
                   </div>
@@ -550,14 +552,14 @@ export default function CheckoutPage() {
                   style={{ fontFamily: 'DM Sans' }}
                 >
                   <span>Subtotal</span>
-                  <span>PKR {subtotal}</span>
+                  <span>PKR {subtotal.toLocaleString()}</span>
                 </div>
                 <div
                   className="flex justify-between text-sm text-[#F5F0E8]"
                   style={{ fontFamily: 'DM Sans' }}
                 >
                   <span>Shipping</span>
-                  <span>PKR {deliveryPrice}</span>
+                  <span>PKR {deliveryPrice.toLocaleString()}</span>
                 </div>
                 {discount > 0 && (
                   <div
@@ -565,7 +567,7 @@ export default function CheckoutPage() {
                     style={{ fontFamily: 'DM Sans' }}
                   >
                     <span>Discount</span>
-                    <span>-PKR {discount}</span>
+                    <span>-PKR {discount.toLocaleString()}</span>
                   </div>
                 )}
                 <div
@@ -573,7 +575,7 @@ export default function CheckoutPage() {
                   style={{ fontFamily: 'Cinzel' }}
                 >
                   <span>Total</span>
-                  <span>PKR {total}</span>
+                  <span>PKR {total.toLocaleString()}</span>
                 </div>
               </div>
 
